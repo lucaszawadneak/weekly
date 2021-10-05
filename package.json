@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.4",
+    "v-calendar": "^2.3.2",
     "vue": "^3.2.16",
     "vuex": "^4.0.2"
   },
