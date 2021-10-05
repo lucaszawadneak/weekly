@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-blueGray-800 rounded p-2 mt-2 max-w-xs w-full">
-    <h1 class="text-white font-bold">Tags</h1>
+  <div class="bg-blueGray-800 rounded p-2 mt-2 md:max-w-xs mx-5 md:mx-0 w-full flex-1">
+    <h1 class="text-white font-bold mt-1">Tags</h1>
     <template v-for="(tag, index) in tags" :key="tag">
       <WeekTag :index="index" :item="tag" />
     </template>
@@ -13,7 +13,7 @@
         rounded
         p-1
         px-2
-        mb-2
+        mb-1
         justify-between
       "
     >
@@ -25,7 +25,6 @@
         <PlusIcon class="text-green-500 h-5" />
       </button>
     </div>
-    <h1 class="text-white font-bold">Your Week</h1>
   </div>
 </template>
 

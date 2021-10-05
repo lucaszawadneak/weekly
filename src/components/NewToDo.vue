@@ -9,6 +9,7 @@
       shadow-lg
       flex
       justify-between
+      items-center
     "
   >
     <div class="flex-1 mr-5">
@@ -19,7 +20,7 @@
         placeholder="To do"
         class="w-full flex-1 bg-blueGray-800 outline-none resize-none text-white mb-2"
       />
-      <select class="w-1/2 bg-blueGray-900 rounded text-white p-2" v-model="cardTag">
+      <select class="w-full md:w-1/2 bg-blueGray-900 rounded text-white p-2" v-model="cardTag">
         <option value="" label=""/>
         <option :value="tag" :label="tag.value" :key="tag.value" v-for="tag in tags"/>
       </select>
@@ -31,7 +32,6 @@
         p-2
         text-white
         font-bold
-        mt-2
         hover:opacity-70
         transition
         duration-300

@@ -8,7 +8,7 @@ import NewToDo from "./components/NewToDo.vue";
 <template>
   <div class="w-full flex pt-5 justify-center items-start gap-3 flex-wrap">
     <Week  />
-    <div class="max-w-3xl w-full flex-1 min-w-min">
+    <div class="mx-5  md:mx-0 max-w-3xl w-full flex-3">
       <template v-for="item in cards" :key="item.id">
         <TodoBox
           :card="item"

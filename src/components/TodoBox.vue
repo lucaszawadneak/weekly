@@ -13,7 +13,7 @@
     "
   >
     <div class="flex-1">
-      <h1 class="text-white font-bold">{{ todoItem.value }}</h1>
+      <h1 class="text-white text-lg">{{ todoItem.value }}</h1>
       <WeekTagView :item="todoItem.tag"/>
     </div>
     <div class="flex gap-2 mt-2">
