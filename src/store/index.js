@@ -10,13 +10,13 @@ export default createStore({
       state.tags.push(value);
     },
     removeTag(state, value) {
-      state.tags = state.tags.filter((item) => item !== value);
+      state.tags = state.tags.filter((item) => item.value !== value);
     },
     addCard(state, value) {
       state.cards.push(value);
     },
-    removeCard(state, data) {
-      state.cards = state.cards.filter((item) => item.id !== data.id);
+    removeCard(state, id) {
+      state.cards = state.cards.filter((item) => item.id !== id);
     },
   },
   actions: {

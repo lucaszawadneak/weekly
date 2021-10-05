@@ -33,6 +33,9 @@
 import { PlusIcon } from "@heroicons/vue/outline";
 import { mapActions, mapState } from "vuex";
 import WeekTag from "./WeekTag.vue";
+
+const colors = ["blue", "green", "purple", "yellow", "orange","gray"];
+
 export default {
   components: { PlusIcon, WeekTag },
   computed:{
@@ -47,7 +50,9 @@ export default {
     ...mapActions(["addNewTag"]),
     newTag() {
       if (this.tags.length < 5) {
-        this.addNewTag(this.newTagLabel);
+        const tagColor = colors[Math.floor(Math.random()*5)];
+
+        this.addNewTag({value: this.newTagLabel,color: tagColor});
         this.newTagLabel = "";
       }
     },

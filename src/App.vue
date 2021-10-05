@@ -7,45 +7,25 @@ import NewToDo from "./components/NewToDo.vue";
 
 <template>
   <div class="w-full flex pt-5 justify-center items-start gap-3 flex-wrap">
-    <Week :tags="tags" @newTag="handleAddNewTag" @deleteTag="handleDeleteTag" />
+    <Week  />
     <div class="max-w-3xl w-full flex-1 min-w-min">
       <template v-for="item in cards" :key="item.id">
         <TodoBox
           :card="item"
-          @done="handleTaskComplete"
-          @delete="handleDeleteCard"
         />
       </template>
-      <NewToDo @submit="handleAddNewCard" />
+      <NewToDo />
     </div>
     <Profile></Profile>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
-  data() {
-    return {
-      cards: [],
-      tags: [],
-    };
-  },
-  methods: {
-    handleAddNewCard(data) {
-      this.cards.push(data);
-    },
-    handleAddTag(data) {
-      this.tags.push(data);
-    },
-    handleDeleteCard(id) {
-      this.cards = this.cards.filter((item) => item.id !== id);
-    },
-    handleDeleteTag(data) {
-      this.cards = this.cards.filter((item) => item !== data);
-    },
-    handleTaskComplete(id) {
-      this.cards = this.cards.filter((item) => item.id !== id);
-    },
+  computed:{
+    ...mapState(["cards"])
   },
 };
 </script>

@@ -14,6 +14,7 @@
   >
     <div class="flex-1">
       <h1 class="text-white font-bold">{{ todoItem.value }}</h1>
+      <WeekTagView :item="todoItem.tag"/>
     </div>
     <div class="flex gap-2 mt-2">
       <button
@@ -60,9 +61,11 @@
 
 <script>
 import { TrashIcon, CheckIcon, ClockIcon } from "@heroicons/vue/outline";
+import { mapActions } from "vuex";
+import WeekTagView from "./WeekTagView.vue";
 
 export default {
-  components: { TrashIcon, CheckIcon, ClockIcon },
+  components: { TrashIcon, CheckIcon, ClockIcon,WeekTagView},
   props: {
     card: {
       required: true,
@@ -74,11 +77,12 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['deleteCard']),
     handleRemoveItem() {
-      this.$emit("delete", this.todoItem.id);
+      this.deleteCard(this.todoItem.id);
     },
     handleCheckItem() {
-      this.$emit("done", this.todoItem.id);
+      this.deleteCard(this.todoItem.id);
     },
   },
 };

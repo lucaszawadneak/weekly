@@ -12,8 +12,8 @@
     "
   >
     <div class="flex flex-row items-center">
-      <div :class="`h-2 w-2 rounded-full bg-${color}-500 mr-2`"></div>
-      <h3 :class="`text-${color}-500`">{{ value }}</h3>
+      <div :class="`h-2 w-2 rounded-full bg-${tag.color}-500 mr-2`"></div>
+      <h3 :class="`text-${tag.color}-500`">{{ tag.value }}</h3>
     </div>
     <button @click="handleRemoveTag">
       <XIcon class="text-red-500 h-5" />
@@ -25,7 +25,6 @@
 import { XIcon } from "@heroicons/vue/outline";
 import { mapActions } from "vuex";
 
-const colors = ["blue", "green", "purple", "yellow", "orange"];
 
 export default {
   components: { XIcon },
@@ -41,14 +40,13 @@ export default {
   },
   data() {
     return {
-      color: colors[this.index],
-      value: this.item,
+      tag: this.item,
     };
   },
   methods:{
     ...mapActions(['deleteTag']),
     handleRemoveTag(){
-      this.deleteTag(this.value);
+      this.deleteTag(this.tag.value);
     }
   }
 };
